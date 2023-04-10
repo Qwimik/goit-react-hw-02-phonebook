@@ -3,6 +3,7 @@ import {
   FilterSpan,
   FilterInput,
 } from 'components/Filter/Filter.styled';
+import PropTypes from 'prop-types';
 
 export const Filter = ({ filter, filterContacts }) => {
   const handleChange = e => {
@@ -21,4 +22,9 @@ export const Filter = ({ filter, filterContacts }) => {
       </FilterLabel>
     </div>
   );
+};
+
+Filter.propTypes = {
+  filter: PropTypes.string,
+  filterContacts: PropTypes.func,
 };

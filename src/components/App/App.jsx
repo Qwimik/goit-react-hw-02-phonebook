@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
@@ -48,7 +46,7 @@ export default class App extends Component {
     return (
       <Container>
         <Title>Phonebook</Title>
-        <ContactForm addContact={this.addContact} filter={this.state.filter} />
+        <ContactForm addContact={this.addContact} />
         <SubTitle>Contacts</SubTitle>
         <Filter
           filter={this.state.filter}
@@ -62,14 +60,3 @@ export default class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      number: PropTypes.string,
-    })
-  ),
-  filter: PropTypes.string,
-};

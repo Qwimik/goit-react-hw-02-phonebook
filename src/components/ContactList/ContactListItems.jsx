@@ -3,18 +3,30 @@ import {
   ContactBtn,
 } from 'components/ContactList/ContactList.styled';
 import { FaWindowClose } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 export const ContactListItems = ({ contacts, deleteContact }) => {
-  return contacts.map(item => {
+  return contacts.map(({ name, number }) => {
     return (
-      <ContactLi key={item.name}>
+      <ContactLi key={name}>
         <span>
-          {item.name}: {item.number}
+          {name}: {number}
         </span>
-        <ContactBtn type="button" onClick={() => deleteContact(item.name)}>
+        <ContactBtn type="button" onClick={() => deleteContact(name)}>
           <FaWindowClose />
         </ContactBtn>
       </ContactLi>
     );
   });
+};
+
+ContactListItems.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  deleteContact: PropTypes.func.isRequired,
 };

@@ -42,8 +42,6 @@ export const ContactForm = ({ addContact }) => {
   );
 };
 
-initialValues.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  number: PropTypes.string,
+ContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
 };
