@@ -18,10 +18,9 @@ const initialValues = {
 };
 
 export const ContactForm = ({ addContact }) => {
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = values => {
     values.id = nanoid();
     addContact(values);
-    resetForm();
   };
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>

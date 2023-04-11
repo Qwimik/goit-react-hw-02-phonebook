@@ -25,6 +25,6 @@ export const Filter = ({ filter, filterContacts }) => {
 };
 
 Filter.propTypes = {
-  filter: PropTypes.string,
-  filterContacts: PropTypes.func,
+  filter: PropTypes.string.isRequired,
+  filterContacts: PropTypes.func.isRequired,
 };
